@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="static/images/favicon.png" type="">
+
+  <title> AI Photo Recognition </title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="static/styles/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- font awesome style -->
+  <link href="static/styles/font-awesome.min.css" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="static/styles/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="static/styles/responsive.css" rel="stylesheet" />
+
+  <link href="static/styles/upload-section.css" rel="stylesheet" />
+
+</head>
+
+<body class="sub_page">
+
+  <div class="hero_area">
+
+    <div class="hero_bg_box">
+      <div class="bg_img_box">
+        <img src="static/images/hero-bg.png" alt="">
+      </div>
+    </div>
+
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="{{ url_for('home') }}">
+            <span>
+              AI Photo Recognition
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ">
+              <li class="nav-item ">
+                <a class="nav-link" href="{{ url_for('home') }}">Home </a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{{ url_for('services') }}">Services <span class="sr-only">(current)</span> </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('why') }}">Why Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('team') }}">Team</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+  </div>
+    <!-- end header section -->
+
+    <!-- Upload image section -->
+        <div class="container-object-model">
+          <h1 class="h1-object-model">Human Faces Photo Classification</h1>
+          <form class="form-object-model" action="/upload_human" method="post" enctype="multipart/form-data">
+            <div id="upload-container" onclick="document.getElementById('file').click()">
+              <label id="upload-label" for="file">Click to choose an image</label>
+              <br id="line">
+              <span id="upload-icon">📷</span>
+              <input class="input-object-model" type="file" name="file" id="file" accept="image/*" onchange="previewImage(event)" required>
+              <img id="preview" src="#" alt="Selected Image">
+            </div>
+            <button id="upload-btn" class="button-object-model" type="submit" onclick="resetDefault()">Upload</button>
+          </form>
+          <button id="clear-btn" onclick="clearImage()">Clear</button>
+          {% if result %}
+            <p id="result-message">The uploaded human photo is {{ result }}</p>
+          {% endif %}
+        </div>
+  <!-- End upload image section -->
+
+  <!-- info section -->
+  <section class="info_section layout_padding2">
+    <div class="container">
+      <div class="row" style="display: flex;justify-content: center;">
+        <div class="col-md-6 col-lg-3 info_col">
+          <div class="info_contact">
+            <h4>
+              Information:
+            </h4>
+            <div class="contact_link_box">
+              <a href="https://www.google.bg/maps/place/%D0%9F%D0%9C%D0%93+%E2%80%9E%D0%90%D0%BA%D0%B0%D0%B4.+%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0+%D0%9E%D0%B1%D1%80%D0%B5%D1%88%D0%BA%D0%BE%D0%B2%E2%80%9C/@42.5036605,27.4617078,15.25z/data=!4m19!1m12!4m11!1m6!1m2!1s0x40a69495955030ff:0x6fbcdf39102ac851!2z0J_QnNCTIOKAntCQ0LrQsNC0LiDQndC40LrQvtC70LAg0J7QsdGA0LXRiNC60L7QsuKAnCwg0LHRg9C70LXQstCw0YDQtCDigJ7QodGC0LXRhNCw0L0g0KHRgtCw0LzQsdC-0LvQvtCy4oCcLCDQkdGD0YDQs9Cw0YE!2m2!1d27.4712978!2d42.500296!1m3!2m2!1d23.3162753!2d42.6674403!3m5!1s0x40a69495955030ff:0x6fbcdf39102ac851!8m2!3d42.5002991!4d27.4713138!16s%2Fg%2F1216ff_8?hl=bg&entry=ttu">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  PPMG"Akad. Nikola Obreshkov"
+                </span>
+              </a>
+              <a>
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span>
+                  Call +359 88 888 8888
+                </span>
+              </a>
+              <a>
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  aiphotorecognition@gmail.com
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 info_col">
+          <div class="info_detail">
+            <h4>
+              Our Project:
+            </h4>
+            <p>
+              Verify photo authenticity effortlessly. Our system uses algorithms to distinguish between human and AI-generated images.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-2 mx-auto info_col">
+          <div class="info_link_box">
+            <h4>
+              Learn more:
+            </h4>
+            <div class="info_links">
+              <a class="active" href="{{ url_for('why') }}">
+                Why us?
+              </a>
+              <a class="" href="{{ url_for('home') }}">
+                About the project
+              </a>
+              <a class="" href="{{ url_for('team') }}">
+                Our team
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 info_col ">
+          <h4>
+            Send us an email:
+          </h4>
+          <form action="mailto:aiphotorecognition@gmail.com?subject = Feedback&body = Message">
+            <span id="ask-question">Press Send Email & Ask question</span>
+            <hr id="question-line">
+            <button type="submit">
+              Send Email
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end info section -->
+
+  <!-- footer section -->
+  <section class="footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span> <a>AI Photo Recognition. All Rights Reserved.</a>
+      </p>
+    </div>
+  </section>
+  <!-- footer section -->
+
+  <!-- jQery -->
+  <script type="text/javascript" src="static/js/jquery-3.4.1.min.js"></script>
+  <!-- popper js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <!-- bootstrap js -->
+  <script type="text/javascript" src="static/js/bootstrap.js"></script>
+  <!-- owl slider -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <!-- custom js -->
+  <script type="text/javascript" src="static/js/custom.js"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+  </script>
+  <!-- End Google Map -->
+  <script src="static/js/imageUpload.js">
+  </script>
+</body>
+
+</html>

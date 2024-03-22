@@ -1,0 +1,115 @@
+#clear-btn{
+    background-color: #00bbf0;
+    transition: background-color 0.3s ease;
+    color: #fff;
+    width: 5em;
+    margin-top: 1em;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    display: none;
+    border-radius: 5px;
+}
+
+#clear-btn:hover {
+    background-color: #007FA4;
+}
+
+#main-container{
+    position: relative;
+}
+
+#preview {
+    max-width: 12em;
+    max-height: 12em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    max-width: 100%;
+    max-height: 200px;
+    margin-top: 20px;
+    display: none;
+}
+
+#imageInput {
+    display: none;
+}
+
+#upload-label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+}
+
+#upload-icon {
+    font-size: 40px;
+    color: #3498db;
+}
+
+#upload-container:hover {
+    background-color: #f9f9f9;
+}
+
+#upload-container:active {
+    background-color: #e0e0e0;
+}
+
+#upload-container {
+    text-align: center;
+    padding: 20px;
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #fff;
+    position: relative;
+}
+
+.container-object-model {
+    max-width: 50em;
+    margin: 10em auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.h1-object-model {
+    text-align: center;
+}
+
+.form-object-model {
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-object-model > *{
+    display: block;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.button-object-model {
+    background-color: #00bbf0;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1em;
+    display: none;
+}
+
+.button-object-model:hover {
+    background-color: #007FA4;
+}
